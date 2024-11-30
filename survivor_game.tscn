@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh7mn1s674173"]
+
+[ext_resource type="Script" path="res://survivor_game.gd" id="1_d0kvs"]
+[ext_resource type="PackedScene" uid="uid://2rxakib22p0g" path="res://player.tscn" id="1_wbaqb"]
+[ext_resource type="PackedScene" uid="uid://c50mo6x1o0a6o" path="res://pine_tree.tscn" id="2_6x8wq"]
+
+[sub_resource type="Curve2D" id="Curve2D_xq8ky"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -117, -114, 0, 0, 0, 0, 1972, -75, 14.6494, -141.097, -14.6494, 141.097, 1997, 1169, 0, 0, 0, 0, -109, 1251, 0, 0, 0, 0, -117, -114)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_d0kvs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -38.0
+offset_top = -16.0
+offset_right = 1899.0
+offset_bottom = 1166.0
+
+[node name="Player" parent="." instance=ExtResource("1_wbaqb")]
+position = Vector2(909, 611)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-898.155, -609.831)
+scale = Vector2(0.973037, 1.01026)
+curve = SubResource("Curve2D_xq8ky")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(67.4924, 1255.18)
+rotation = -3.12069
+progress = 5279.54
+
+[node name="PineTree" parent="." instance=ExtResource("2_6x8wq")]
+position = Vector2(224, 413)
+
+[node name="PineTree2" parent="." instance=ExtResource("2_6x8wq")]
+position = Vector2(745, 387)
+
+[node name="PineTree3" parent="." instance=ExtResource("2_6x8wq")]
+position = Vector2(1682, 823)
+
+[node name="PineTree4" parent="." instance=ExtResource("2_6x8wq")]
+position = Vector2(1638, 361)
+
+[node name="PineTree5" parent="." instance=ExtResource("2_6x8wq")]
+position = Vector2(1311, 796)
+
+[node name="PineTree6" parent="." instance=ExtResource("2_6x8wq")]
+position = Vector2(446, 938)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+offset_left = -64.0
+offset_top = -47.0
+offset_right = 2001.0
+offset_bottom = 1188.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.5
+offset_top = -172.0
+offset_right = 282.5
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 240
+text = "YOU SUCK"
+uppercase = true
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
