@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var player = get_node("/root/Game/Player")
 
 var health = 3
+var experienceGiven = 10
 
 func _ready():
 	%Slime.play_walk()
@@ -21,3 +22,4 @@ func take_damage():
 		var smoke = SMOKE_SCENE.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+		player.addExperience(10)
