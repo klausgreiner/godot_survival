@@ -62,4 +62,3 @@ offset_top = 492.0
 offset_right = 935.0
 offset_bottom = 524.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_nl25g")
-value = 50.0

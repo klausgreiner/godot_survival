@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh7mn1s674173"]
+[gd_scene load_steps=6 format=3 uid="uid://bh7mn1s674173"]
 
 [ext_resource type="Script" path="res://survivor_game.gd" id="1_d0kvs"]
 [ext_resource type="PackedScene" uid="uid://2rxakib22p0g" path="res://player.tscn" id="1_wbaqb"]
 [ext_resource type="PackedScene" uid="uid://c50mo6x1o0a6o" path="res://pine_tree.tscn" id="2_6x8wq"]
+[ext_resource type="PackedScene" uid="uid://bgjph6iceqvnd" path="res://level_up.tscn" id="4_otvih"]
 
 [sub_resource type="Curve2D" id="Curve2D_xq8ky"]
 _data = {
@@ -58,6 +59,12 @@ position = Vector2(446, 938)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="LevelUp" parent="." instance=ExtResource("4_otvih")]
+unique_name_in_owner = true
+visible = false
+z_index = 4
+position = Vector2(-42, 46)
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
