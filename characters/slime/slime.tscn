@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ogik4s70pgwl"]
+[gd_scene load_steps=13 format=3 uid="uid://ogik4s70pgwl"]
 
 [ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="1_3j35h"]
 [ext_resource type="Script" path="res://characters/slime/slime.gd" id="1_87y5x"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c078jrp2yvc4s" path="res://characters/slime/slime_face.png" id="2_ygydt"]
 [ext_resource type="Texture2D" uid="uid://btbxea1f3vwot" path="res://characters/slime/slime_body_hurt.png" id="4_0qu0c"]
 [ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://characters/slime/slime_hurt_eyes.png" id="4_hi70h"]
+[ext_resource type="AudioStream" uid="uid://q8cnqr0j208v" path="res://characters/slime/f1f72f86-c6bf-4477-8f58-6a76c7f3bffa-1683306808872.mp3" id="7_b6x42"]
 
 [sub_resource type="Animation" id="Animation_y4lve"]
 length = 0.001
@@ -243,3 +244,9 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_j6cum")
 }
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_b6x42")
+volume_db = -2.0
+autoplay = true
